@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"math/rand"
 	"strings"
-	"time"
 )
 
 const welcomeMessage = "Welcome! Let's play Hangman!"
@@ -17,6 +16,18 @@ func main() {
 	fmt.Print("|")
 	fmt.Println(repeatString("_", len(word())))
 
+	fmt.Print("Enter Your guess: ")
+
+	var guess string
+
+	// Taking input from user
+	fmt.Scan(&guess)
+
+	if guess == "_" {
+		fmt.Println("Congrats")
+	} else {
+		print("you lose")
+	}
 }
 
 func message() string {
@@ -25,7 +36,6 @@ func message() string {
 
 func word() string {
 	wordList := []string{"ryu", "ken", "gouken", "vega", "chun-li"}
-	rand.Seed(time.Now().UnixNano())
 	num := rand.Intn(len(wordList))
 	return wordList[num]
 }
