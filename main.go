@@ -23,15 +23,19 @@ func main() {
 	// Taking input from user
 	fmt.Scan(&guess)
 
-	if guess == "_" {
-		fmt.Println("Congrats")
+	if containsLetter(word(), guess) {
+		fmt.Printf("The word contains the letter '%s'.\n", guess)
 	} else {
-		print("you lose")
+		fmt.Printf("The word does not contain the letter '%s'.\n", guess)
 	}
 }
 
 func message() string {
 	return welcomeMessage
+}
+
+func containsLetter(word, letter string) bool {
+	return strings.Contains(word, letter)
 }
 
 func word() string {
